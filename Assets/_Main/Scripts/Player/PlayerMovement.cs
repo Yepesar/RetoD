@@ -7,7 +7,6 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Stats")]
     [SerializeField] private SOPlayerStats playerStats;
-    [SerializeField] private Transform body;
 
     private Rigidbody rb;
 
@@ -20,17 +19,16 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Move(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-       
+        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+        {
+            Move(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        }      
     }
 
     private void Move(float x, float z)
     {
-        Vector3 dir = new Vector3(x, 0, z);
-        Vector3 rot = dir - transform.position;
-        rot.Normalize();       
+        Vector3 dir = new Vector3(x, 0 ,z);
         rb.velocity = dir * playerStats.MovementSpeed;
-        body.rotation = Quaternion.LookRotation(rot);
-        
+        transform.forward = Vector3.Lerp(transform.forward, rb.velocity, playerStats.RotationSpeed);   
     }
 }
