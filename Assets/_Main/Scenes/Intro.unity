@@ -1050,7 +1050,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Eres una inteligencia artificial encargada de entrenar a la pr\xF3xima
     generaci\xF3n de robots para el hogar.\n\nConsigue la m\xE1xima puntuaci\xF3n
-    y haz el menos da\xF1o posible, la compa\xF1\xEDa cuenta contigo."
+    y haz el menor  da\xF1o posible, la compa\xF1\xEDa cuenta contigo."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
