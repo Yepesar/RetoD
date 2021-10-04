@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 3243623907490445649}
   - component: {fileID: 3243623907490445648}
   - component: {fileID: 6542740916409427878}
-  m_Layer: 0
+  - component: {fileID: 1502384051}
+  m_Layer: 7
   m_Name: CleanBot
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49,7 +50,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!65 &3243623907490445648
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -75,8 +76,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0945d9b557e5cc840abff64a0d424829, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  botName: Robot de limpieza
+  speed: 15
   stopDistance: 1
+  resistance: 1
+  wayPoints: {fileID: 0}
+  routePrefab: {fileID: 1753351869200088891, guid: 4be57c1ce1247b242958c4e08de5f5ba, type: 3}
+  nameColor: {r: 0.37782645, g: 0.8301887, b: 0.246707, a: 1}
+  animations: {fileID: 1502384051}
+  faceRenderer: {fileID: 7240371088024555093}
+  deathFace: {fileID: 21300000, guid: 1673eb3126705db49a28f3d5c9bcdab7, type: 3}
+  winPoints: 100
+  deathPoints: 50
+  onAddPoints: {fileID: 11400000, guid: b4546a20c22b2b341ae8ba940c895ff1, type: 2}
+  onRemovePoints: {fileID: 11400000, guid: f2116fc5ad2b5d74e8f16d6744ed5b8f, type: 2}
+  botComplete: {fileID: 11400000, guid: 57d5643ec94de464abbd984d9863a4f0, type: 2}
+  audioPlayer: {fileID: 0}
+  selectedBotSound: {fileID: 8300000, guid: 6bdc3c159052a9e4f9fcc36eee916ee6, type: 3}
+  deathSound: {fileID: 8300000, guid: 8280f7ea53d9903439963edd38821b60, type: 3}
+--- !u!114 &1502384051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292606188295470444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 581b8971ffc0ce24eb528dafa3897f62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 931181154}
 --- !u!1 &1638736811868558915
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,7 +118,7 @@ GameObject:
   - component: {fileID: 2350952674718055057}
   - component: {fileID: 3225992125332997576}
   - component: {fileID: 7038597047629306604}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RCleaner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +199,7 @@ GameObject:
   - component: {fileID: 6244622744707246328}
   - component: {fileID: 4846665423451343573}
   - component: {fileID: 412852588632855364}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -251,7 +281,7 @@ GameObject:
   - component: {fileID: 3711265780049748868}
   - component: {fileID: 6270518850669551940}
   - component: {fileID: 874607236552530415}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -414,7 +444,7 @@ GameObject:
   - component: {fileID: 4614653444994737913}
   - component: {fileID: 1276892499920571822}
   - component: {fileID: 146319484807097774}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LCleaner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -495,7 +525,7 @@ GameObject:
   - component: {fileID: 3618761522425555812}
   - component: {fileID: 2628611755990550800}
   - component: {fileID: 1004657167235565450}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Chasis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -575,7 +605,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7604434181241476798}
-  m_Layer: 0
+  - component: {fileID: 931181154}
+  m_Layer: 7
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -602,6 +633,25 @@ Transform:
   m_Father: {fileID: 1354246963787771652}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!95 &931181154
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7116725580272028676}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 71f605369ccb96a4aaea7f45eb5e1017, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7317991402267460401
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,7 +663,7 @@ GameObject:
   - component: {fileID: 6771661265363373531}
   - component: {fileID: 2595365980202662725}
   - component: {fileID: 5837397874115127194}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4094165508241996224}
   - component: {fileID: 4696185987619278686}
   - component: {fileID: 3758880257615762305}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Chasis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 909941823929492133}
-  m_Layer: 0
+  - component: {fileID: 232512767}
+  m_Layer: 7
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,6 +119,25 @@ Transform:
   m_Father: {fileID: 5439880717263949637}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!95 &232512767
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 570571665334269983}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 533c2cd425506c44a956739d10b76def, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2469403802861077789
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,7 +231,7 @@ GameObject:
   - component: {fileID: 2675746235722994402}
   - component: {fileID: 8399438890234706357}
   - component: {fileID: 7435292447603628469}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -295,9 +315,10 @@ GameObject:
   - component: {fileID: 1215802321458738116}
   - component: {fileID: 6238960840508524044}
   - component: {fileID: 2028788510436309781}
-  m_Layer: 0
+  - component: {fileID: 1398857435}
+  m_Layer: 7
   m_Name: GroundBot
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -358,7 +379,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &2028788510436309781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,8 +392,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0945d9b557e5cc840abff64a0d424829, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  botName: Robot multimedia
+  speed: 11
   stopDistance: 1
+  resistance: 0
+  wayPoints: {fileID: 0}
+  routePrefab: {fileID: 1753351869200088891, guid: 9141b730bedcfe84e9fd111310697c3a, type: 3}
+  nameColor: {r: 1, g: 0.30196083, b: 0.3469746, a: 1}
+  animations: {fileID: 1398857435}
+  faceRenderer: {fileID: 4337699697906569234}
+  deathFace: {fileID: 21300000, guid: 1673eb3126705db49a28f3d5c9bcdab7, type: 3}
+  winPoints: 100
+  deathPoints: 50
+  onAddPoints: {fileID: 11400000, guid: b4546a20c22b2b341ae8ba940c895ff1, type: 2}
+  onRemovePoints: {fileID: 11400000, guid: f2116fc5ad2b5d74e8f16d6744ed5b8f, type: 2}
+  botComplete: {fileID: 11400000, guid: 57d5643ec94de464abbd984d9863a4f0, type: 2}
+  audioPlayer: {fileID: 0}
+  selectedBotSound: {fileID: 8300000, guid: c0a0d45d2dd6b4946bcb6d65446252cd, type: 3}
+  deathSound: {fileID: 8300000, guid: 8280f7ea53d9903439963edd38821b60, type: 3}
+--- !u!114 &1398857435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3186422234042947422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 581b8971ffc0ce24eb528dafa3897f62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 232512767}
 --- !u!1 &4148749431541386062
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,7 +434,7 @@ GameObject:
   - component: {fileID: 6273742652796886911}
   - component: {fileID: 4706850582001990923}
   - component: {fileID: 7555317804275757969}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -466,7 +516,7 @@ GameObject:
   - component: {fileID: 3711520867465010403}
   - component: {fileID: 2768151758249557710}
   - component: {fileID: 6958656124604507999}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -548,7 +598,7 @@ GameObject:
   - component: {fileID: 8998547270871045032}
   - component: {fileID: 6968792826625471531}
   - component: {fileID: 6667287562093355060}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -629,7 +679,7 @@ GameObject:
   - component: {fileID: 6244719505139275679}
   - component: {fileID: 3615819242423096671}
   - component: {fileID: 7569312340803923444}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ScreenHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}

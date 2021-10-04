@@ -24,23 +24,23 @@ public class WayPointsCreator : MonoBehaviour
         {
             if (moves > 0)
             {
+               
                 RaycastHit hit;
                 if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
                 {
-                    botSelected.Raise();
-
                     if (hit.collider)
                     {
+                       
                         Bot b = hit.collider.GetComponent<Bot>();
                         if (b != null)
                         {
                             ActualBot = b;
                             routePrefab = ActualBot.RoutePrefab;
-                            b.PlaySelectedSound();
-                            
+                            b.PlaySelectedSound();                           
                         }
                         else if (ActualBot)
                         {
+                           
                             if (ActualBot.Alive)
                             {
                                 if (hit.collider.gameObject.layer == 9)
@@ -69,6 +69,8 @@ public class WayPointsCreator : MonoBehaviour
                         }
                     }
                 }
+
+                botSelected.Raise();
             }          
         }
         else if (Input.GetMouseButtonDown(1))
